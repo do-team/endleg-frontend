@@ -1,0 +1,58 @@
+.error-panel {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.214;
+    padding: 15px;
+    text-transform: uppercase;
+}
+.login-spinner {
+    width: 57px;
+    height: 57px;
+}
+
+.todo-list {
+    min-height: 400px;
+}
+
+.todo-create {
+    position: relative;
+    padding: 19px 25px 20px;
+    color: #34495e;
+    background: #1abc9c;
+    background-size: 16px 16px;
+    border-radius: 6px 6px 0 0;
+}
+.todo-create:before {
+    position: absolute;
+    top: 50%;
+    left: 92%;
+    display: inline-block;
+    margin: -.5em 0 0 -1em;
+    font-family: 'Flat-UI-Icons';
+    font-size: 16px;
+    line-height: 17px;
+    content: "\e608";
+}
+.todo-create-field {
+    padding: 5px 0;
+    margin: 0;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 23px;
+    color: #34495e;
+    text-indent: 0;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+.todo-create-field::-moz-placeholder {
+    color: #34495e;
+    opacity: 1;
+}
+.todo-create-field:-ms-input-placeholder {
+    color: #34495e;
+}
+.todo-create-field::-webkit-input-placeholder {
+    color: #34495e;
+}
