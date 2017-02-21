@@ -129,7 +129,7 @@ function loginUser(username, password)
 function displayToken() {
 
     var loadToken = localStorage.getItem('sessionToken');
-    console.log("CognitoToken: " + loadToken);
+    console.log("CognitoToken >>> " + loadToken);
 
     return loadToken;
 }
@@ -170,14 +170,22 @@ function apiVerify(token) {
         }
     });
 
-    request.open(method, url);
-    request.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    request.setRequestHeader("Access-Control-Allow-Credentials", "true");
-    request.setRequestHeader("test", token);
-    request.setRequestHeader("cache-control", "no-cache");
-    request.send();
+    var data = JSON.stringify({
+        "card1": "spock",
+        "card2": "spock",
+        "card3": "spock",
+        "card4": "spock",
+        "card5": "spock"
+    });
 
-    console.log(token);
+
+    request.open(method, url);
+    request.setRequestHeader("content-type", "application/json");
+    request.setRequestHeader("Access-Control-Allow-Credentials", "true");
+    request.setRequestHeader("sectoken", token);
+    request.setRequestHeader("cache-control", "no-cache");
+    request.send(data);
+
 }
 
 // Verify cards and JSON them
