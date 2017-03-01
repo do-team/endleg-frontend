@@ -38,7 +38,7 @@
 
     <nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #525252; border-radius: 5px">
         <a class="navbar-brand" href="#">
-            <img src="img/lizard.png" width="20" height="20" alt="Logo">
+            <img src="img/lizard.png" width="20" height="20" alt="">
         </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,17 +48,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: white;">Profile</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="./profile.html" style="color: darkgray;">Profile</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: darkgray;">History</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./page-history.html" style="color: white;">History</a>
                 </li>
 
             </ul>
 
-            <button id="logoffButton" type="submit" class="btn btn-danger btn-sm">Logout</button>
+            <button id="logoffButton" type="submit" class="btn btn-danger">Logout</button>
         </div>
     </nav>
 
@@ -66,42 +66,14 @@
 
     <form id="myCards">
         <div class="row">
-                <div class="col">
-                    <img id="myCard1" src="img/rock.png" style="width: 60px; margin: 5px;"/> <br>
-                    <button class="btn btn-success" type="button"><span class="glyphicon glyphicon-plus-sign"></span> Card 1 </button>
-                </div>
-
-                <div class="col">
-                    <img id="myCard2" src="img/scissors.png" style="width: 60px; margin: 5px;"/> <br>
-                    <button class="btn btn-success" type="button"><i class="material-icons">add_circle</i> Card 2 </button>
-                </div>
-
-                <div class="col">
-                    <img id="myCard3" src="img/paper.png" style="width: 60px; margin: 5px;"/> <br>
-                    <button class="btn btn-success" type="button"><i class="material-icons">add_circle</i> Card 3 </button>
-                </div>
-
-                <div class="col">
-                    <img id="myCard4" src="img/paper.png" style="width: 60px; margin: 5px;"/> <br>
-                    <button class="btn btn-success" type="button"><i class="material-icons">add_circle</i> Card 4 </button>
-                </div>
-
-                <div class="col">
-                    <img id="myCard5" src="img/paper.png" style="width: 60px; margin: 5px;"/> <br>
-                    <button class="btn btn-success" type="button"> <i class="material-icons">add_circle</i> Card 5 </button>
-                </div>
+            Match RESULTS belongs here!
         </div>
     </form>
 
-    <div class="row">
-        <div class="col">
-            <button type="button" class="btn btn-primary" style="margin: 30px;" id="submitButton"><span class="fa fa-envelope"></span> Submit </button>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col text-right">
-            <small>Deutsche Boerse Labs 2017</small>
+          <small>Deutsche Boerse Labs 2017</small>
         </div>
     </div>
 </div>
@@ -123,49 +95,11 @@
 <script src="js/auth.js"></script>
 
 <script type="text/javascript">
-    var images = [
-            'img/rock.png',
-            'img/paper.png',
-            'img/scissors.png',
-            'img/spock.png',
-            'img/lizard.png'
-        ],
-        i = 1;
-
-    for (var j=images.length; j--;) {
-        var img = new Image();
-        img.src = images[j];
-    }
-
-    document.getElementById('myCard1').addEventListener('click', function() {
-        this.src = images[i >= images.length - 1 ? i = 0 : ++i];
-    }, false);
-
-    document.getElementById('myCard2').addEventListener('click', function() {
-        this.src = images[i >= images.length - 1 ? i = 0 : ++i];
-    }, false);
-
-    document.getElementById('myCard3').addEventListener('click', function() {
-        this.src = images[i >= images.length - 1 ? i = 0 : ++i];
-    }, false);
-
-    document.getElementById('myCard4').addEventListener('click', function() {
-        this.src = images[i >= images.length - 1 ? i = 0 : ++i];
-    }, false);
-
-    document.getElementById('myCard5').addEventListener('click', function() {
-        this.src = images[i >= images.length - 1 ? i = 0 : ++i];
-    }, false);
-
 
     document.getElementById("logoffButton").addEventListener("click", function () {
         logoutUser();
     }, false);
 
-    var form = document.getElementById("myCards");
-        document.getElementById("submitButton").addEventListener("click", function () {
-            checkHand();
-    });
 
 </script>
 </body>
