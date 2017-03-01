@@ -114,8 +114,8 @@
                 <!-- Register user button -->
                 <form id="registerUser" target="_top">
                     <div class="row">
-                        <a href="index.html" class="btn waves-effect waves-light col s12">Register</a>
-                        <!--<button class="col s5 btn waves-effect waves-light light-blue" type="submit" id="register" alt="Register yourself!"> Register <i class="material-icons right">send</i></button>-->
+                        <!--<a href="index.html" class="btn waves-effect waves-light col s12">Register</a>-->
+                        <button class="col s5 btn waves-effect waves-light light-blue" type="submit" id="register" alt="Register yourself!"> Register <i class="material-icons right">send</i></button>
                     </div>
                 </form>
 
@@ -136,57 +136,68 @@
 
 <script type="text/javascript">
 
-$(document).ready(function() {
-    $("#loginForm").validate({
-        rules: {
-            name: {
-                required: true,
-                minlength: 5
-            },
-            email: {
-                required: true,
-                email: true
-            },
-            username: {
-                required: true,
-                minlength: 5
-            },
-            password: {
-                required: true,
-                minlength: 5,
-            },
-        },
-        //For custom messages
-        messages: {
-            uname: {
-                required: "Enter a username",
-                minlength: "Enter at least 5 characters"
-            },
-            curl: "Enter your website",
-        },
-        errorElement: 'div',
-        errorPlacement: function (error, element) {
-            var placement = $(element).data('error');
-            if (placement) {
-                $(placement).append(error)
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
+    (function ($) {
+        $(function () {
+            $('.submit').sideNav({
+                menuWidth: 300, // Default is 240
+                closeOnClick: true
+            );
+            $('.collapsible').collapsible();
+        });
+    })(jQuery);
 
-    $('#registerUser').submit(function (event) {
-        console.log('Creating user')
-        var user = {};
-        user.name = $('#loginForm #name').val();
-        user.email = $('#loginForm #email').val();
-        user.username = $('#loginForm #username').val();
-        user.password = $('#loginForm #password').val();
-        registerUser(user);
-//        confirmUser($('#loginForm #username').val(), $('#loginForm #code').val());
-        event.preventDefault();
-    });
-});
+        //
+//$(document).ready(function() {
+//    $("#loginForm").validate({
+//        rules: {
+//            name: {
+//                required: true,
+//                minlength: 5
+//            },
+//            email: {
+//                required: true,
+//                email: true
+//            },
+//            username: {
+//                required: true,
+//                minlength: 5
+//            },
+//            password: {
+//                required: true,
+//                minlength: 5,
+//            },
+//        },
+//        //For custom messages
+//        messages: {
+//            uname: {
+//                required: "Enter a username",
+//                minlength: "Enter at least 5 characters"
+//            },
+//            curl: "Enter your website",
+//        },
+//        errorElement: 'div',
+//        errorPlacement: function (error, element) {
+//            var placement = $(element).data('error');
+//            if (placement) {
+//                $(placement).append(error)
+//            } else {
+//                error.insertAfter(element);
+//            }
+//        }
+//    });
+//
+//    $('#registerUser').submit(function (event) {
+//        console.log('Creating user')
+//        var user = {};
+//        user.name = $('#loginForm #name').val();
+//        user.email = $('#loginForm #email').val();
+//        user.username = $('#loginForm #username').val();
+//        user.password = $('#loginForm #password').val();
+//        registerUser(user);
+////        confirmUser($('#loginForm #username').val(), $('#loginForm #code').val());
+//        event.preventDefault();
+//    });
+//});
 
 </script>
 
