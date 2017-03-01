@@ -67,3 +67,11 @@ div.form-control {
 img.logo {
     border-top: 100px;
 }
+
+img.inverted {
+    filter: invert(100%);
+}
+
+small {
+    color: rgba(82, 82, 82, 0.43);
+}
