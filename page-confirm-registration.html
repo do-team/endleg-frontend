@@ -34,13 +34,13 @@
         // Amazon Config
         AWS.config.region = 'eu-central-1';                                     // Frankfurt region
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6'     // your identity pool id here
+            IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6'     // your identity pool id here
         });
 
         // Cognito Config
         AWSCognito.config.region = 'eu-central-1';
         AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6'    // your identity pool id here
+            IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6'    // your identity pool id here
         });
 
     </script>
@@ -61,23 +61,23 @@
 
         <br><h3>The Endleg Game</h3>
 
+        Please confirm registration by code received to your email
         <form id="frmLogin">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card-block">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="username" placeholder="Username" id="Username" style="border-bottom: hidden 30px;">
-                        <input type="password" class="form-control" name="password" placeholder="Password" id="Password">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-block">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="username" placeholder="Username" id="Username">
+                            <input type="code" class="form-control" name="code" placeholder="Code" id="Code">
+                        </div>
+                        <button id="loginButton" type="submit" class="btn btn-primary">Register</button>
                     </div>
-                    <button id="loginButton" type="submit" class="btn btn-primary">Login</button>
                 </div>
-                <a href="./page-registration.html"> Register Now! </a>
             </div>
-        </div>
-</form>
+        </form>
 
     </div>
-    </div>
+</div>
 
 </div>
 
@@ -101,32 +101,31 @@
 <script src="js/auth.js"></script>
 
 <script>
-$(document).ready(function () {
-    $('#frmLogin').validate({
-        rules: {
-            username: {
-                minlength: 2,
-                required: true
+    $(document).ready(function () {
+        $('#frmLogin').validate({
+            rules: {
+                username: {
+                    required: true
+                },
+                code: {
+                    minlength: 4,
+                    required: true
+                },
             },
-            password: {
-                required: true,
-                minlength: 8
+            highlight: function (element) {
+                $(element).closest('.control-group').removeClass('success').addClass('error');
             },
-        },
-        highlight: function (element) {
-            $(element).closest('.control-group').removeClass('success').addClass('error');
-        },
-        success: function (element) {
-            element.text('OK!').addClass('valid')
-                .closest('.control-group').removeClass('error').addClass('success');
-        }
-    });
+            success: function (element) {
+                element.text('OK!').addClass('valid')
+                    .closest('.control-group').removeClass('error').addClass('success');
+            }
+        });
 
-    $('#frmLogin #loginButton').submit(function (event) {
-        loginUser($('#frmLogin #Username').val(), $('#frmLogin #Password').val());
-        event.preventDefault();
+        $('#frmLogin #loginButton').submit(function (event) {
+            loginUser($('#frmLogin #Username').val(), $('#frmLogin #Password').val());
+            event.preventDefault();
+        });
     });
-});
 </script>
 
 </body>

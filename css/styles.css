@@ -1,58 +1,69 @@
-.error-panel {
-    color: #fff;
-    font-size: 14px;
-    line-height: 1.214;
-    padding: 15px;
-    text-transform: uppercase;
-}
-.login-spinner {
-    width: 57px;
-    height: 57px;
+html, body {
+    height: 100%;
 }
 
-.todo-list {
-    min-height: 400px;
+.jumbotron.vertical-center {
+    margin-bottom: 0; /* Remove the default bottom margin of .jumbotron */
 }
 
-.todo-create {
-    position: relative;
-    padding: 19px 25px 20px;
-    color: #34495e;
-    background: #1abc9c;
-    background-size: 16px 16px;
-    border-radius: 6px 6px 0 0;
+.vertical-center {
+    min-height: 100%;  /* Fallback for vh unit */
+    min-height: 100vh; /* You might also want to use
+                        'height' property instead.
+
+                        Note that for percentage values of
+                        'height' or 'min-height' properties,
+                        the 'height' of the parent element
+                        should be specified explicitly.
+
+                        In this case the parent of '.vertical-center'
+                        is the <body> element */
+
+    /* Make it a flex container */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    /* Align the bootstrap's container vertically */
+    -webkit-box-align : center;
+    -webkit-align-items : center;
+    -moz-box-align : center;
+    -ms-flex-align : center;
+    align-items : center;
+
+    /* In legacy web browsers such as Firefox 9
+       we need to specify the width of the flex container */
+    width: 100%;
+
+    /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
+       hence the bootstrap's container won't be aligned to the center anymore.
+
+       Therefore, we should use the following declarations to get it centered again */
+    -webkit-box-pack : center;
+    -moz-box-pack : center;
+    -ms-flex-pack : center;
+    -webkit-justify-content : center;
+    justify-content : center;
 }
-.todo-create:before {
-    position: absolute;
-    top: 50%;
-    left: 92%;
-    display: inline-block;
-    margin: -.5em 0 0 -1em;
-    font-family: 'Flat-UI-Icons';
-    font-size: 16px;
-    line-height: 17px;
-    content: "\e608";
+
+.container {
+    background-color: white;
 }
-.todo-create-field {
-    padding: 5px 0;
-    margin: 0;
-    font-size: 19px;
-    font-weight: 700;
-    line-height: 23px;
-    color: #34495e;
-    text-indent: 0;
-    background: none;
-    border: none;
-    outline: none;
-    box-shadow: none;
+
+div.container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 7px;
+    text-align: center;
 }
-.todo-create-field::-moz-placeholder {
-    color: #34495e;
-    opacity: 1;
+
+div.form-control {
+    border-bottom: 5px; /* Remove the default bottom margin of .jumbotron */
+    margin-top: 5px; /* Remove the default bottom margin of .jumbotron */
+    text-align: center;
 }
-.todo-create-field:-ms-input-placeholder {
-    color: #34495e;
-}
-.todo-create-field::-webkit-input-placeholder {
-    color: #34495e;
+
+img.logo {
+    border-top: 100px;
 }
