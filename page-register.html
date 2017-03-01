@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="The Endleg game frontend is based on Material Design by Google. ">
+    <meta name="keywords" content="materialize, endleg, game, frontend, login, fun, deutsche-boerse-labs, 2017">
+
+    <title>The Endleg Game</title>
+
+    <!-- Styles ---------->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+    <!-- Angular JS -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+    <!-- AWS SDK -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.4.8.min.js"></script>
+
+    <link rel="Browser icon" href="favicon.ico">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <script src="js/jsbn.js"></script>
+    <script src="js/jsbn2.js"></script>
+    <script src="js/sjcl.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="lib/aws/aws-cognito-sdk.min.js"></script>
+    <script src="lib/aws/amazon-cognito-identity.min.js"></script>
+    <script src="lib/aws/aws-sdk.min.js"></script>
+
+    <script>
+        // Amazon Config
+        AWS.config.region = 'eu-central-1';                                     // Frankfurt region
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6'     // your identity pool id here
+        });
+
+        // Cognito Config
+        AWSCognito.config.region = 'eu-central-1';
+        AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6'    // your identity pool id here
+        });
+    </script>
+</head>
+
+<body>
+
+<div class="valign-wrapper" class="col s12">
+
+    <!-- Start Page Loading -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+
+    <div id="login-page" class="row" style="width: 350px;">
+
+        <div class="col s12 z-depth-2 card-panel">
+
+                <!-- Endleg Logo -->
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <p class="center login-form-text"><h4>The Endleg Game</h4></p>
+                        <img src="img/rock.png" alt="Endleg" style="width: 100px;">
+                    </div>
+                </div>
+
+            <!--<form id="loginForm" class="loginForm" method="get">-->
+            <form id="loginForm" method="get">
+
+                <!-- Name -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="name" type="text">
+                        <label for="name" class="center-align">Name</label>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" type="email" class="validate">
+                        <label for="email" class="center-align" data-error="Wrong email" data-success="Correct">Email</label>
+                    </div>
+                </div>
+
+                <!-- Username -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">assignment_ind</i>
+                        <input id="username" type="text">
+                        <label for="username" class="center-align">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input id="password" type="password">
+                        <label for="password" class="center-align">Password</label>
+                    </div>
+                </div>
+
+                <!-- Register user button -->
+                <form id="registerUser" target="_top">
+                    <div class="row">
+                        <a href="index.html" class="btn waves-effect waves-light col s12">Register</a>
+                        <!--<button class="col s5 btn waves-effect waves-light light-blue" type="submit" id="register" alt="Register yourself!"> Register <i class="material-icons right">send</i></button>-->
+                    </div>
+                </form>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+<!-- Custom Scripts -->
+<script src="js/auth.js"></script>
+<!--<script type="text/javascript" src="js/custom-script.js"></script>-->
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $("#loginForm").validate({
+        rules: {
+            name: {
+                required: true,
+                minlength: 5
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            username: {
+                required: true,
+                minlength: 5
+            },
+            password: {
+                required: true,
+                minlength: 5,
+            },
+        },
+        //For custom messages
+        messages: {
+            uname: {
+                required: "Enter a username",
+                minlength: "Enter at least 5 characters"
+            },
+            curl: "Enter your website",
+        },
+        errorElement: 'div',
+        errorPlacement: function (error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $('#registerUser').submit(function (event) {
+        console.log('Creating user')
+        var user = {};
+        user.name = $('#loginForm #name').val();
+        user.email = $('#loginForm #email').val();
+        user.username = $('#loginForm #username').val();
+        user.password = $('#loginForm #password').val();
+        registerUser(user);
+//        confirmUser($('#loginForm #username').val(), $('#loginForm #code').val());
+        event.preventDefault();
+    });
+});
+
+</script>
+
+</body>
+</html>
