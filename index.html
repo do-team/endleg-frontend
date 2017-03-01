@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
@@ -63,13 +64,21 @@
 
         <form id="frmLogin">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col col-md-12">
                 <div class="card-block">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="username" placeholder="Username" id="Username" style="border-bottom: hidden 30px;">
-                        <input type="password" class="form-control" name="password" placeholder="Password" id="Password">
+                    <div class="form-group row">
+                        <label for="Username" class="col-2 material-icons prefix">assignment_ind</label>
+                        <div class="col-10">
+                            <input type="text" class="form-control input-sm" name="username" placeholder="Username" id="Username">
+                        </div>
                     </div>
-                    <button id="loginButton" type="submit" class="btn btn-primary">Login</button>
+                    <div class="form-group row">
+                        <label for="Password" class="col-2 material-icons prefix">vpn_key</label>
+                        <div class="col-10">
+                            <input type="password" class="form-control" name="password" placeholder="Password" id="Password">
+                        </div>
+                    </div>
+                    <button id="loginButton" type="submit" class="btn btn-block btn-primary">Login</button>
                 </div>
                 <a href="./page-registration.html"> Register Now! </a>
             </div>
