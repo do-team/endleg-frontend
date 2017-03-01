@@ -42,7 +42,9 @@ function registerUser(user)
             return;
         }
         console.log('User' + user.username + 'Created');
+        window.location = "./page-confirm-registration.html";
     });
+
 }
 
 // Function calls the Confirmation method sending email to registered user with Confirmation code
@@ -68,6 +70,7 @@ function confirmUser(username, code)
         }
         alert('User ' + username + '  Confirmed');
     });
+    window.location = "./profile.html";
 }
 
 function loginUser(username, password)

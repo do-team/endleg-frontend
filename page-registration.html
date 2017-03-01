@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
@@ -55,30 +56,50 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <img src="img/rock.png" alt="The Endleg" height="125px" width="125px" align="center" id="logo">
+                <img src="img/rock.png" alt="The Endleg" height="110px" width="110px" align="center" id="logo">
             </div>
         </div>
 
         <br><h3>The Endleg Game</h3>
+        Welcome to Rock, Scissors, Paper, Lizard, Spock! Game
 
-        <form id="frmLogin">
+        <form id="frmRegistration">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-block">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Name" id="Name">
-                            <input type="email" class="form-control" name="email" placeholder="Email" id="Email">
-                            <input type="text" class="form-control" name="username" placeholder="Username" id="Username">
-                            <input type="password" class="form-control" name="password" placeholder="Password" id="Password">
+                        <div class="form-group row">
+                            <label for="Name" class="col-2 material-icons prefix">account_circle</label>
+                            <div class="col-10">
+                                <input type="text" class="form-control" name="name" placeholder="Name" id="Name">
+                            </div>
                         </div>
-                        <button id="loginButton" type="submit" class="btn btn-primary">Register</button>
+                        <div class="form-group row">
+                            <label for="Email" class="col-2 material-icons prefix">email</label>
+                            <div class="col-10">
+                                <input type="email" class="form-control" name="email" placeholder="Email" id="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Username" class="col-2 material-icons prefix">assignment_ind</label>
+                            <div class="col-10">
+                                <input type="text" class="form-control" name="username" placeholder="Username" id="Username">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Password" class="col-2 material-icons prefix">vpn_key</label>
+                            <div class="col-10">
+                                <input type="password" class="form-control" name="password" placeholder="Password" id="Password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <button id="registerButton" type="submit" class="btn btn-block btn-primary">Sign Up</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </form>
 
     </div>
-</div>
 
 </div>
 
@@ -92,31 +113,27 @@
 <!-- jQuery validator -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.js"></script>
 
-<!-- Angular JS -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 <!-- AWS SDK -->
 <script src="https://sdk.amazonaws.com/js/aws-sdk-2.4.8.min.js"></script>
-<!-- Angular JS Controller -->
-<script type="text/javascript" src="js/ctrl_lambda.js"></script>
 
 <script src="js/auth.js"></script>
 
 <script>
     $(document).ready(function () {
-        $('#frmLogin').validate({
+        $('#frmRegistration').validate({
             rules: {
                 name: {
-                    minlength: 5,
-                    required: true
-                },
-                username: {
-                    minlength: 5,
+                    minlength: 4,
                     required: true
                 },
                 email: {
                     minlength: 5,
                     required: true,
                     email: true
+                },
+                username: {
+                    minlength: 5,
+                    required: true
                 },
                 password: {
                     required: true,
@@ -132,10 +149,15 @@
             }
         });
 
-//        $('#frmLogin #loginButton').submit(function (event) {
-//            loginUser($('#frmLogin #Username').val(), $('#frmLogin #Password').val());
-//            event.preventDefault();
-//        });
+        $('#frmRegistration').submit(function (event) {
+            console.log('Creating user')
+            var user = {};
+            user.name = $('#frmRegistration #Name').val();
+            user.email = $('#frmRegistration #Email').val();
+            user.username = $('#frmRegistration #Username').val();
+            user.password = $('#frmRegistration #Password').val();
+            registerUser(user);
+        });
     });
 </script>
 

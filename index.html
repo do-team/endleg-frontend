@@ -51,43 +51,51 @@
 
 <div class="jumbotron vertical-center" style="background: #525252; border-radius: 0px;">
 
-    <!--<div class="container text-center" style="width: 300px; height: 450px;">-->
     <div class="container text-center" style="width: 300px;">
         <br>
         <div class="row">
             <div class="col-md-12">
-                <img src="img/rock.png" alt="The Endleg" height="125px" width="125px" align="center" id="logo">
+                <img src="img/rock.png" alt="The Endleg" height="110px" width="110px" align="center" id="logo">
             </div>
         </div>
 
         <br><h3>The Endleg Game</h3>
+        Welcome!
 
-        <form id="frmLogin">
-        <div class="row">
-            <div class="col col-md-12">
-                <div class="card-block">
-                    <div class="form-group row">
-                        <label for="Username" class="col-2 material-icons prefix">assignment_ind</label>
-                        <div class="col-10">
-                            <input type="text" class="form-control input-sm" name="username" placeholder="Username" id="Username">
+
+            <div class="row">
+                <div class="col col-md-12">
+
+                    <form id="frmLogin">
+                    <div class="card-block">
+
+                        <div class="form-group row">
+                            <label for="Username" class="col-2 material-icons prefix">assignment_ind</label>
+                            <div class="col-10">
+                                <input type="text" class="form-control input-sm" name="username" placeholder="Username" id="Username">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Password" class="col-2 material-icons prefix">vpn_key</label>
+                            <div class="col-10">
+                                <input type="password" class="form-control" name="password" placeholder="Password" id="Password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <button id="loginButton" type="submit" class="btn btn-block btn-primary">Login</button>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="Password" class="col-2 material-icons prefix">vpn_key</label>
-                        <div class="col-10">
-                            <input type="password" class="form-control" name="password" placeholder="Password" id="Password">
-                        </div>
-                    </div>
-                    <button id="loginButton" type="submit" class="btn btn-block btn-primary">Login</button>
+                    </form>
+
+                    <a href="./page-registration.html"> Register Now! </a>
+
                 </div>
-                <a href="./page-registration.html"> Register Now! </a>
             </div>
-        </div>
-</form>
+
 
     </div>
-    </div>
-
 </div>
 
 <!-- jQuery library -->
@@ -100,42 +108,34 @@
 <!-- jQuery validator -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.js"></script>
 
-<!-- Angular JS -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 <!-- AWS SDK -->
 <script src="https://sdk.amazonaws.com/js/aws-sdk-2.4.8.min.js"></script>
-<!-- Angular JS Controller -->
-<script type="text/javascript" src="js/ctrl_lambda.js"></script>
 
 <script src="js/auth.js"></script>
 
 <script>
-$(document).ready(function () {
-    $('#frmLogin').validate({
-        rules: {
-            username: {
-                minlength: 2,
-                required: true
+    $(document).ready(function () {
+        $('#frmLogin').validate({
+            rules: {
+                username: {
+                    minlength: 4,
+                    required: true
+                },
+                password: {
+                    required: true,
+                    minlength: 8
+                },
             },
-            password: {
-                required: true,
-                minlength: 8
-            },
-        },
-        highlight: function (element) {
-            $(element).closest('.control-group').removeClass('success').addClass('error');
-        },
-        success: function (element) {
-            element.text('OK!').addClass('valid')
-                .closest('.control-group').removeClass('error').addClass('success');
-        }
-    });
+            highlight: function (element) {
+                $(element).closest('.control-group').removeClass('success').addClass('error');
+            }
+        });
 
-    $('#frmLogin #loginButton').submit(function (event) {
-        loginUser($('#frmLogin #Username').val(), $('#frmLogin #Password').val());
-        event.preventDefault();
+        $('#frmLogin').submit(function (event) {
+            loginUser($('#frmLogin #Username').val(), $('#frmLogin #Password').val());
+            event.preventDefault();
+        });
     });
-});
 </script>
 
 </body>

@@ -55,14 +55,14 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <img src="img/rock.png" alt="The Endleg" height="125px" width="125px" align="center" id="logo">
+                <img src="img/rock.png" alt="The Endleg" height="110px" width="110px" align="center" id="logo">
             </div>
         </div>
 
         <br><h3>The Endleg Game</h3>
 
-        Please confirm registration by code received to your email
-        <form id="frmLogin">
+        Complete registration by code received to your email
+        <form id="frmConfirm">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-block">
@@ -70,7 +70,7 @@
                             <input type="text" class="form-control" name="username" placeholder="Username" id="Username">
                             <input type="code" class="form-control" name="code" placeholder="Code" id="Code">
                         </div>
-                        <button id="loginButton" type="submit" class="btn btn-primary">Register</button>
+                        <button id="confirmButton" type="submit" class="btn btn-primary">Register</button>
                     </div>
                 </div>
             </div>
@@ -91,20 +91,17 @@
 <!-- jQuery validator -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.js"></script>
 
-<!-- Angular JS -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 <!-- AWS SDK -->
 <script src="https://sdk.amazonaws.com/js/aws-sdk-2.4.8.min.js"></script>
-<!-- Angular JS Controller -->
-<script type="text/javascript" src="js/ctrl_lambda.js"></script>
 
 <script src="js/auth.js"></script>
 
 <script>
     $(document).ready(function () {
-        $('#frmLogin').validate({
+        $('#frmConfirm').validate({
             rules: {
                 username: {
+                    minlength: 4,
                     required: true
                 },
                 code: {
@@ -121,8 +118,8 @@
             }
         });
 
-        $('#frmLogin #loginButton').submit(function (event) {
-            loginUser($('#frmLogin #Username').val(), $('#frmLogin #Password').val());
+        $('#frmConfirm').submit(function (event) {
+            loginUser($('#frmConfirm #Username').val(), $('#frmConfirm #Code').val());
             event.preventDefault();
         });
     });

@@ -1,0 +1,4 @@
+.bin/
+.idea/
+/facebook-auth-test.html
+/facebook-lambda-auth.html
