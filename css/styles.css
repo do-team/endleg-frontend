@@ -59,9 +59,13 @@ div.container {
 }
 
 div.form-control {
-    border-bottom: 5px; /* Remove the default bottom margin of .jumbotron */
-    margin-top: 5px; /* Remove the default bottom margin of .jumbotron */
+    border-bottom: 5px;         /* Remove the default bottom margin of .jumbotron */
+    margin-top: 5px;            /* Remove the default bottom margin of .jumbotron */
     text-align: center;
+}
+.form-control + .error {
+    color: red;
+    font-size: small;
 }
 
 img.logo {

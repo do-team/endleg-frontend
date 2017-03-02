@@ -1,7 +1,7 @@
 var identityPoolId = 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6';
-var userPoolId  = 'eu-central-1_VtyYw2NZF';                                 //'us-east-1_fgCWraBkF';
+var userPoolId = 'eu-central-1_VtyYw2NZF';                                 //'us-east-1_fgCWraBkF';
 var appClientId = '3mivnikddsbgn7pikmuunv8so8';                             //'57lq262n28o7ddt8i36jcjj7qd';
-var region      = 'eu-central-1';                                           // Frankfurt region
+var region = 'eu-central-1';                                           // Frankfurt region
 
 var loginId = 'cognito-idp.' + region + '.amazonaws.com/' + userPoolId;
 var poolData = {
@@ -16,8 +16,7 @@ var poolData = {
 //  User Name,
 //  Password (min. One capital letter, number, 8 chars)
 //
-function registerUser(user)
-{    // Need to provide placeholder keys unless unauthorised user access is enabled for user pool
+function registerUser(user) {    // Need to provide placeholder keys unless unauthorised user access is enabled for user pool
     AWSCognito.config.update({accessKeyId: 'anything', secretAccessKey: 'anything'});
 
     var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
@@ -49,8 +48,7 @@ function registerUser(user)
 
 // Function calls the Confirmation method sending email to registered user with Confirmation code
 // In order to finish user profile, this step must be done.
-function confirmUser(username, code)
-{
+function confirmUser(username, code) {
     // Need to provide placeholder keys unless unauthorised user access is enabled for user pool
     AWSCognito.config.update({accessKeyId: 'anything', secretAccessKey: 'anything'});
 
@@ -63,7 +61,7 @@ function confirmUser(username, code)
 
     var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
-    cognitoUser.confirmRegistration(code, true, function (err, result){
+    cognitoUser.confirmRegistration(code, true, function (err, result) {
         if (err) {
             console.log(err);
             return;
@@ -73,8 +71,7 @@ function confirmUser(username, code)
     window.location = "./profile.html";
 }
 
-function loginUser(username, password)
-{
+function loginUser(username, password) {
     // Need to provide placeholder keys unless unauthorised user access is enabled for user pool
     AWSCognito.config.update({accessKeyId: 'anything', secretAccessKey: 'anything'});
 
@@ -94,8 +91,10 @@ function loginUser(username, password)
 
     var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
+    $('#loginButton').parent().find('.error').remove();
+
     cognitoUser.authenticateUser(authenticationDetails, {
-            onSuccess: (result) => {
+        onSuccess: (result) => {
             setCredentials(result.getIdToken().getJwtToken());
 
             // Write to localStorage token for authenticating the JSON objects
@@ -104,28 +103,29 @@ function loginUser(username, password)
             localStorage.setItem('sessionToken', token);
             console.log('Success, token is getting written :' + token);
 
-                if (localStorage.getItem("sessionToken") != null) {
-                    window.location = "./profile.html";
-                } else {
-                    window.location = "./error.html";
+            if (localStorage.getItem("sessionToken") != null) {
+                window.location = "./profile.html";
+            } else {
+                window.location = "./error.html";
+            }
+
+
+            cognitoUser.getUserAttributes(function (err, result) {
+                if (err) {
+                    alert(err);
+                    return;
                 }
 
-
-    cognitoUser.getUserAttributes(function(err, result) {
-        if (err) {
-            alert(err);
-            return;
-            }
-
-            for (i = 0; i < result.length; i++) {
-                console.log('attribute ' + result[i].getName() + ' has value ' + result[i].getValue());
-            }
-        });
-
+                for (i = 0; i < result.length; i++) {
+                    console.log('attribute ' + result[i].getName() + ' has value ' + result[i].getValue());
+                }
+            });
+        },
         onFailure: (err) => {
             console.log(err);
+            $('#loginButton').parent().prepend('<span class="error">' + err.message + '</span>')
         }
-    }});
+    });
 }
 
 
@@ -143,14 +143,13 @@ function logoutUser() {
 
     console.log('Logged out!');
     if (cognitoUser != null) cognitoUser.signOut();
-        localStorage.setItem('sessionToken', null);
-        window.location = "./index.html";
+    localStorage.setItem('sessionToken', null);
+    window.location = "./index.html";
 }
 
 
 /* Helper Functions */
-function setCredentials(token)
-{
+function setCredentials(token) {
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
         IdentityPoolId: identityPoolId,
         Logins: {}
@@ -161,7 +160,7 @@ function setCredentials(token)
 function apiVerify(token) {
     var data = null;
     var async = true;
-    var url  = "https://y3op33lkfd.execute-api.eu-central-1.amazonaws.com/PROD/in";
+    var url = "https://y3op33lkfd.execute-api.eu-central-1.amazonaws.com/PROD/in";
     var method = "POST";
 
     var request = new XMLHttpRequest();
@@ -199,17 +198,18 @@ function checkHand() {
     var obj_start = '{ ';
     var obj_end = ' }';
 
-    for(var i = 1; i < 6; i++) {
+    for (var i = 1; i < 6; i++) {
         console.log('Getting element ' + i);
         myCard = document.getElementById("myCard" + i).getAttribute("src");
         var filename = myCard.replace(/^(.*)[\\\/]/, '');                           // Regexp hell
         var output = filename.substr(0, filename.lastIndexOf('.')) || filename;     // Strip file ext from hellstring
 
         if (i === 5) {
-            obj += '"card'+ i +'" : "' + output + '"';
+            obj += '"card' + i + '" : "' + output + '"';
         } else {
-            obj += '"card'+ i +'" : "' + output + '", ';
-        };
+            obj += '"card' + i + '" : "' + output + '", ';
+        }
+        ;
         console.log(obj);
     }
 
@@ -230,17 +230,17 @@ function submitCards(obj) {
 
     var data = null;
     var async = true;
-    var url  = "https://y3op33lkfd.execute-api.eu-central-1.amazonaws.com/PROD/in";
+    var url = "https://y3op33lkfd.execute-api.eu-central-1.amazonaws.com/PROD/in";
     var method = "POST";
 
     var request = new XMLHttpRequest();
 
-    request.withCredentials = true;
+    request.withCredentials = false;
 
     request.open(method, url);
-    request.setRequestHeader("Access-Control-Allow-Origin", "*");
+    //request.setRequestHeader("Access-Control-Allow-Origin", "*");
     request.setRequestHeader("content-type", "application/json");
-    request.setRequestHeader("Access-Control-Allow-Credentials", "true");
+    //request.setRequestHeader("Access-Control-Allow-Credentials", "true");
     request.setRequestHeader("sectoken", idToken);
 
     console.log('DEBUG :: ' + cards);
@@ -254,8 +254,8 @@ function getName() {
     var fullPath = document.getElementById("myCard1").src;
     var index = fullPath.lastIndexOf("/");
     var filename = fullPath;
-    if(index !== -1) {
-        filename = fullPath.substring(index+1,fullPath.length);
+    if (index !== -1) {
+        filename = fullPath.substring(index + 1, fullPath.length);
     }
     document.getElementById("myCard1").value = filename;
 }
