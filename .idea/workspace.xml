@@ -4,9 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/js/auth.js" line="136" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="031d9eef-3de4-48ad-9f50-2328f86065b7" name="Default" comment="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10; - example.json is local JSON testing structure&#10; &#10;Multiple other code fixes">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="031d9eef-3de4-48ad-9f50-2328f86065b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +32,7 @@
       <file leaf-file-name="page-history.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page-history.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="170">
               <caret line="72" column="6" lean-forward="true" selection-start-line="72" selection-start-column="6" selection-end-line="72" selection-end-column="6" />
               <folding>
                 <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -43,12 +43,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="51">
+                <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -126,7 +139,6 @@
         <option value="$PROJECT_DIR$/js/vendor/jquery.min.js" />
         <option value="$PROJECT_DIR$/js/ctrl_lambda.js" />
         <option value="$PROJECT_DIR$/head.html" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/js/user.js" />
         <option value="$PROJECT_DIR$/js/game.js" />
         <option value="$PROJECT_DIR$/js/sign.js" />
@@ -147,6 +159,7 @@
         <option value="$PROJECT_DIR$/page-history.html" />
         <option value="$PROJECT_DIR$/js/loadjson.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -882,7 +895,7 @@
       <workItem from="1488277422108" duration="42375000" />
       <workItem from="1488383951937" duration="2794000" />
       <workItem from="1488386784292" duration="10000" />
-      <workItem from="1488386874615" duration="30635000" />
+      <workItem from="1488386874615" duration="30730000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored: Using JS for S3 Static Website">
       <created>1487614419249</created>
@@ -975,11 +988,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488493014801</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="gitignore modified">
+      <created>1488493094217</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1488493094217</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203151000" />
+    <option name="totallyTimeSpent" value="203246000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1098,7 +1118,8 @@
     <MESSAGE value="index.html : Error message handling&#10;styles.css : Display error messages&#10;&#10;auth.js : modified CORS specification&#10;" />
     <MESSAGE value="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10;&#10;Multiple other fixes" />
     <MESSAGE value="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10; - example.json is local JSON testing structure&#10; &#10;Multiple other code fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10; - example.json is local JSON testing structure&#10; &#10;Multiple other code fixes" />
+    <MESSAGE value="gitignore modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore modified" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1319,16 +1340,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="170">
-            <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/game.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
@@ -1466,9 +1477,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/page-history.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="170">
           <caret line="72" column="6" lean-forward="true" selection-start-line="72" selection-start-column="6" selection-end-line="72" selection-end-column="6" />
           <folding>
             <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1478,11 +1497,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="51">
+            <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
