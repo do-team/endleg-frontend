@@ -4,19 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/js/auth.js" line="136" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="031d9eef-3de4-48ad-9f50-2328f86065b7" name="Default" comment="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10;&#10;Multiple other fixes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/no-pass.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loadjson.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="031d9eef-3de4-48ad-9f50-2328f86065b7" name="Default" comment="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10; - example.json is local JSON testing structure&#10; &#10;Multiple other code fixes">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/styles.css" afterPath="$PROJECT_DIR$/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/error.html" afterPath="$PROJECT_DIR$/error.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/auth.js" afterPath="$PROJECT_DIR$/js/auth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page-confirm-registration.html" afterPath="$PROJECT_DIR$/page-confirm-registration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page-history.html" afterPath="$PROJECT_DIR$/page-history.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profile.html" afterPath="$PROJECT_DIR$/profile.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +29,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="page-history.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="page-history.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page-history.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -49,6 +39,16 @@
                 <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,7 +135,6 @@
         <option value="$PROJECT_DIR$/page-register.html" />
         <option value="$PROJECT_DIR$/css/profile.css" />
         <option value="$PROJECT_DIR$/js/validator.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$PROJECT_DIR$/page-confirm-registration.html" />
         <option value="$PROJECT_DIR$/page-registration.html" />
@@ -147,6 +146,7 @@
         <option value="$PROJECT_DIR$/example.json" />
         <option value="$PROJECT_DIR$/page-history.html" />
         <option value="$PROJECT_DIR$/js/loadjson.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -882,7 +882,7 @@
       <workItem from="1488277422108" duration="42375000" />
       <workItem from="1488383951937" duration="2794000" />
       <workItem from="1488386784292" duration="10000" />
-      <workItem from="1488386874615" duration="30539000" />
+      <workItem from="1488386874615" duration="30635000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored: Using JS for S3 Static Website">
       <created>1487614419249</created>
@@ -968,11 +968,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488464814943</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10; - example.json is local JSON testing structure&#10; &#10;Multiple other code fixes">
+      <created>1488493014801</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1488493014801</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203055000" />
+    <option name="totallyTimeSpent" value="203151000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1090,7 +1097,8 @@
     <MESSAGE value="Fixed styles.css - now rendering correctly even in S3 bucket" />
     <MESSAGE value="index.html : Error message handling&#10;styles.css : Display error messages&#10;&#10;auth.js : modified CORS specification&#10;" />
     <MESSAGE value="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10;&#10;Multiple other fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10;&#10;Multiple other fixes" />
+    <MESSAGE value="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10; - example.json is local JSON testing structure&#10; &#10;Multiple other code fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Error page : Displayed when user is not logged in&#10;page-history : Displays AJAX received data from JSON objects&#10; - example.json is local JSON testing structure&#10; &#10;Multiple other code fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1349,14 +1357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/lizard.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1475,6 +1475,14 @@
             <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
