@@ -37,7 +37,7 @@ function registerUser(user) {    // Need to provide placeholder keys unless unau
 
     userPool.signUp(user.username, user.password, attributeList, null, function (err, result) {
         if (err) {
-            console.log(err);
+            // console.log(err);
             return;
         }
         console.log('User' + user.username + 'Created');
@@ -123,7 +123,8 @@ function loginUser(username, password) {
         },
         onFailure: (err) => {
             console.log(err);
-            $('#loginButton').parent().prepend('<span class="error">' + err.message + '</span>')
+            // $('#loginButton').parent().prepend('<span class="error">' + err.message + '</span>');
+            $('#loginButton').parent().append('<span class="alert alert-danger">' + err.message + '</span>');
         }
     });
 }
@@ -199,7 +200,7 @@ function checkHand() {
     var obj_end = ' }';
 
     for (var i = 1; i < 6; i++) {
-        console.log('Getting element ' + i);
+        // console.log('Getting element ' + i);
         myCard = document.getElementById("myCard" + i).getAttribute("src");
         var filename = myCard.replace(/^(.*)[\\\/]/, '');                           // Regexp hell
         var output = filename.substr(0, filename.lastIndexOf('.')) || filename;     // Strip file ext from hellstring
@@ -210,14 +211,14 @@ function checkHand() {
             obj += '"card' + i + '" : "' + output + '", ';
         }
         ;
-        console.log(obj);
+        // console.log(obj);
     }
 
     obj = obj_start + obj + obj_end;
     var myObject = JSON.stringify(obj);
 
     // console.log(obj);
-    console.log(myObject);
+    // console.log(myObject);
     submitCards(myObject);           // Submit to transmitter
 }
 

@@ -16,13 +16,18 @@
     <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">-->
     <link rel="Browser icon" href="favicon.ico">
 
-    <!--&lt;!&ndash; HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. &ndash;&gt;-->
-    <!--&lt;!&ndash;[if lt IE 9]>-->
-    <!--<script src="js/vendor/html5shiv.js"></script>-->
-    <!--<script src="js/vendor/respond.min.js"></script>-->
-    <!--<![endif]&ndash;&gt;-->
-
-    <link href="css/styles.css" rel="stylesheet">
+    <!-- Script ensuring only logged in users can see the profile page, otherwise redirect to main page -->
+    <script>
+        //        $(document).ready(function () {
+        if ((localStorage.getItem("sessionToken") == 'null') ||
+            (localStorage.getItem("sessionToken") == '') ||
+            (localStorage.getItem("sessionToken") == null)) {
+            window.location = "./error.html";
+        } else {
+            console.log("sessionToken ok, carrying on..");
+        };
+        //        });
+    </script>
 
     <script src="js/jsbn.js"></script>
     <script src="js/jsbn2.js"></script>
@@ -35,9 +40,11 @@
 </head>
 <body>
 
-<div class="container" style="width: 55%;">
+<div class="container">
+    <!--<div class="col col-md-12">-->
 
-    <nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #525252; border-radius: 5px">
+    <nav class="navbar sticky-top navbar-toggleable-md navbar-light" style="background-color: #525252; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;">
+
         <a class="navbar-brand" href="#">
             <img src="img/lizard.png" width="20" height="20" alt="Logo" id="lizard" class="inverted">
         </a>
@@ -63,50 +70,55 @@
         </div>
     </nav>
 
-    <br>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        Click to any symbol to change. When done, hit Play!
+    </div>
 
-    Hint: Click to symbols to rotate cards <br>
-
+ <br> <br>
     <form id="myCards">
-        <div class="row">
-                <div class="col">
-                    <img id="myCard1" src="img/rock.png" style="width: 60px; margin: 5px;"/> <br>
+
+        <div class="row justify-content-lg-center">
+                <div class="col-sm-2 offset-sm-1 col-md-2 offset-md-1 col-lg-2 offset-lg-1">
+                    <img id="myCard1" src="img/rock.png" style="margin-bottom: 15px; margin-left:20px; width: 60px;"/> <br>
                     <button id="button1" class="btn btn-info" type="button"><span class="fa fa-plus-circle"></span> Card 1 </button>
                 </div>
 
-                <div class="col">
-                    <img id="myCard2" src="img/scissors.png" style="width: 60px; margin: 5px;"/> <br>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <img id="myCard2" src="img/scissors.png" style="margin-bottom: 15px; margin-left:20px; width: 60px;"/> <br>
                     <button id="button2" class="btn btn-info" type="button"><span class="fa fa-plus-circle"></span> Card 2 </button>
                 </div>
 
-                <div class="col">
-                    <img id="myCard3" src="img/paper.png" style="width: 60px; margin: 5px;"/> <br>
+                <div class="col-sm-2 col-md-2 col-lg-2 ">
+                    <img id="myCard3" src="img/paper.png" style="margin-bottom: 15px; margin-left:20px; width: 60px;"/> <br>
                     <button id="button3" class="btn btn-info" type="button"><span class="fa fa-plus-circle"></span> Card 3 </button>
                 </div>
 
-                <div class="col">
-                    <img id="myCard4" src="img/lizard.png" style="width: 60px; margin: 5px;"/> <br>
+                <div class="col-sm-2 col-md-2 col-lg-2 ">
+                    <img id="myCard4" src="img/lizard.png" style="margin-bottom: 15px; margin-left:20px; width: 60px;"/> <br>
                     <button id="button4" class="btn btn-info" type="button"><span class="fa fa-plus-circle"></span> Card 4 </button>
                 </div>
 
-                <div class="col">
-                    <img id="myCard5" src="img/spock.png" style="width: 60px; margin: 5px;"/> <br>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <img id="myCard5" src="img/spock.png" style="margin-bottom: 15px; margin-left:20px; width: 60px;"/> <br>
                     <button id="button5" class="btn btn-info" type="button"><span class="fa fa-plus-circle"></span> Card 5 </button>
                 </div>
+
         </div>
     </form>
 
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center">
             <button type="button" class="btn btn-primary" style="margin: 30px;" id="submitButton"><span class="fa fa-paper-plane"></span> Play </button>
-        </div>
     </div>
 
     <div class="row">
-        <div class="col text-right">
+        <div class="col col-md-12 text-right">
             <small>Deutsche Boerse Labs 2017</small>
         </div>
     </div>
+    <!--</div>-->
 </div>
 
 

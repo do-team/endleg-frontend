@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Error</title>
+    <meta charset="utf-8">
+    <title>The Endleg Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+    <!-- FlatUI removed for now !!! -->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">-->
+    <link rel="Browser icon" href="favicon.ico">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="css/styles.css" rel="stylesheet">
+
+    <script src="js/jsbn.js"></script>
+    <script src="js/jsbn2.js"></script>
+    <script src="js/sjcl.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="lib/aws/aws-cognito-sdk.min.js"></script>
+    <script src="lib/aws/amazon-cognito-identity.min.js"></script>
+    <script src="lib/aws/aws-sdk.min.js"></script>
+
+    <script>
+        // Amazon Config
+        AWS.config.region = 'eu-central-1';                                     // Frankfurt region
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6'     // your identity pool id here
+        });
+
+        // Cognito Config
+        AWSCognito.config.region = 'eu-central-1';
+        AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6'    // your identity pool id here
+        });
+    </script>
 </head>
 
 <body>
- Not authorized
+    <div class="jumbotron vertical-center" style="background: #525252; border-radius: 0px;">
+
+        <!--<div class="container text-center" style="width: 300px; height: 450px;">-->
+        <div class="container text-center" style="width: 300px;">
+            <br>
+
+            <h3> The Endleg </h3>
+            <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="img/no-pass.png" alt="Gandalf says YOU SHALL NOT PASS! Trust Gandalf" align="center" id="nopass">
+                </div>
+            </div>
+            <br>
+            <div class="button">
+                <a href="index.html" class="btn btn-block btn-danger">Return to main page</a>
+            </div>
+            <br>
+         </div>
+    </div>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<!-- Latest compiled Bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </body>
 </html>

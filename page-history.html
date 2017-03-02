@@ -9,19 +9,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 
     <!-- FlatUI removed for now !!! -->
     <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">-->
     <link rel="Browser icon" href="favicon.ico">
-
-    <!--&lt;!&ndash; HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. &ndash;&gt;-->
-    <!--&lt;!&ndash;[if lt IE 9]>-->
-    <!--<script src="js/vendor/html5shiv.js"></script>-->
-    <!--<script src="js/vendor/respond.min.js"></script>-->
-    <!--<![endif]&ndash;&gt;-->
-
-    <link href="css/styles.css" rel="stylesheet">
 
     <script src="js/jsbn.js"></script>
     <script src="js/jsbn2.js"></script>
@@ -34,14 +27,13 @@
 </head>
 <body>
 
-<div class="container" style="width: 55%;">
+<div class="container">
 
-    <nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #525252; border-radius: 5px">
+    <nav class="navbar sticky-top navbar-toggleable-md navbar-light" style="background-color: #525252; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;">
 
         <a class="navbar-brand" href="#">
             <img src="img/lizard.png" width="20" height="20" alt="Logo" id="lizard" class="inverted">
         </a>
-
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -50,17 +42,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="./profile.html" style="color: darkgray;">Profile</a>
+                <li class="nav-item ">
+                    <a class="nav-link" href="profile.html" style="color: darkgray;">Profile</a>
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="./page-history.html" style="color: white;">History</a>
+                    <a class="nav-link" href="#" style="color: white;">History</a>
                 </li>
 
             </ul>
 
-            <button id="logoffButton" type="submit" class="btn btn-danger">Logout</button>
+            <button id="logoffButton" type="submit" class="btn btn-danger btn-sm"><span class="fa fa-power-off"></span> Logout</button>
         </div>
     </nav>
 
@@ -68,7 +60,7 @@
 
     <form id="myCards">
         <div class="row">
-        <div class="col-12">Match RESULTS will render here! </div>
+            <div class="col text-center" id="show-data">Match RESULTS will render here! </div>
         </div>
     </form>
 
@@ -82,8 +74,7 @@
 
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <!-- Latest compiled Bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
@@ -94,15 +85,15 @@
 <!-- AWS SDK -->
 <script src="https://sdk.amazonaws.com/js/aws-sdk-2.4.8.min.js"></script>
 
-<script src="js/auth.js"></script>
+<script src="js/loadjson.js"></script>
 
 <script type="text/javascript">
 
     document.getElementById("logoffButton").addEventListener("click", function () {
         logoutUser();
     }, false);
-
-
 </script>
+
+
 </body>
 </html>

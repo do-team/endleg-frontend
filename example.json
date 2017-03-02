@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "key"   : "username",
+      "value" : "stan"
+    },{
+      "key"   : "card1",
+      "value" : "rock"
+    },{
+      "key"   : "card2",
+      "value" : "scissors"
+    },{
+      "key"   : "card3",
+      "value" : "paper"
+    },{
+      "key"   : "card4",
+      "value" : "spock"
+    },{
+      "key"   : "card5",
+      "value" : "lizard"
+    },{
+      "key"   : "username",
+      "value" : "davesade"
+    },{
+      "key"   : "card1",
+      "value" : "rock"
+    },{
+      "key"   : "card2",
+      "value" : "scissors"
+    },{
+      "key"   : "card3",
+      "value" : "paper"
+    },{
+      "key"   : "card4",
+      "value" : "spock"
+    },{
+      "key"   : "card5",
+      "value" : "lizard"
+    }
+  ],
+  "obj": {
+    "number": 3.14e-6,
+    "enabled": true
+  },
+  "message": "This are the game results.."
+}
