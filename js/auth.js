@@ -1,8 +1,10 @@
+// App Specific
 var identityPoolId = 'eu-central-1:6eaecaa6-58f1-420f-9a97-ac544534c9e6';
-var userPoolId = 'eu-central-1_VtyYw2NZF';                                 //'us-east-1_fgCWraBkF';
-var appClientId = '3mivnikddsbgn7pikmuunv8so8';                             //'57lq262n28o7ddt8i36jcjj7qd';
+var userPoolId = 'eu-central-1_VtyYw2NZF';                             //'us-east-1_fgCWraBkF';
+var appClientId = '3mivnikddsbgn7pikmuunv8so8';                        //'57lq262n28o7ddt8i36jcjj7qd';
 var region = 'eu-central-1';                                           // Frankfurt region
 
+// Constructed Parameters
 var loginId = 'cognito-idp.' + region + '.amazonaws.com/' + userPoolId;
 var poolData = {
     UserPoolId: userPoolId,
@@ -11,7 +13,7 @@ var poolData = {
 
 // Register new user in AWS Cognito User Pool. New user has to provide following information:
 //
-//  Name,                                   < -- tbd - remove and replace by username everywhere; needs to modify DynamoDB table
+//  Name,
 //  Email (in valid format),
 //  User Name,
 //  Password (min. One capital letter, number, 8 chars)
@@ -37,7 +39,7 @@ function registerUser(user) {    // Need to provide placeholder keys unless unau
 
     userPool.signUp(user.username, user.password, attributeList, null, function (err, result) {
         if (err) {
-            // console.log(err);
+            console.log(err);
             return;
         }
         console.log('User' + user.username + 'Created');

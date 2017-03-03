@@ -7,6 +7,7 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -47,22 +48,32 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: white;">History</a>
+                    <a class="nav-link" href="page-history.html" style="color: white;">History</a>
                 </li>
 
             </ul>
-
+            <button id="refreshButton" type="button" class="btn btn-primary btn-sm" style="margin-right: 10px;"><span class="fa fa-refresh"></span> Refresh </button>
             <button id="logoffButton" type="submit" class="btn btn-danger btn-sm"><span class="fa fa-power-off"></span> Logout</button>
         </div>
     </nav>
 
     <br>
 
-    <form id="myCards">
-        <div class="row">
-            <div class="col text-center" id="show-data">Match RESULTS will render here! </div>
+    <div class="row">
+        <div class="col text-center">
+            <h4> Scoreboard </h4>
         </div>
-    </form>
+    </div>
+
+
+    <div class="row">
+       <div class="col-md-4">
+        <div class="col text-center" id="show-player-0">Match RESULTS for Player1 will render here! </div>
+       </div>
+        <div class="col-md-4">
+            <div class="col text-center" id="show-player-1">Match RESULTS for Player2 will render here! </div>
+        </div>
+    </div>
 
 
     <div class="row">
@@ -91,6 +102,10 @@
 
     document.getElementById("logoffButton").addEventListener("click", function () {
         logoutUser();
+    }, false);
+
+    document.getElementById("refreshButton").addEventListener("click", function () {
+        window.location = "./page-history.html";
     }, false);
 </script>
 

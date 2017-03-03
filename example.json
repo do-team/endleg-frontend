@@ -1,9 +1,6 @@
 {
   "items": [
     {
-      "key"   : "username",
-      "value" : "stan"
-    },{
       "key"   : "card1",
       "value" : "rock"
     },{
@@ -18,9 +15,6 @@
     },{
       "key"   : "card5",
       "value" : "lizard"
-    },{
-      "key"   : "username",
-      "value" : "davesade"
     },{
       "key"   : "card1",
       "value" : "rock"
