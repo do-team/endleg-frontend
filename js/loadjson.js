@@ -2,59 +2,51 @@
 $(document).ready(function () {
     // $('#show-data').click(function () {
 
-        var showData0 = $('#show-player-0');
-        var counter = 0;
-
-        $.getJSON('example.json', function (data0) {
-            console.log(data0);
+        var showData1 = $('#show-player-1');
+        $.getJSON('example.json', function (data) {
 
             // Display card pictures
-            var items0 = data0.items.map(function (item0) {
-                counter += 1;
-                if (counter <= 5) {
-                    return item0.key + ': <img src="img/' + item0.value + '.png" height="50px" width="50px" align="center">';
-                }
+            var player1 = data.player1.map(function (item1) {
+                console.log(item1);
+                return 'Player1: ' + item1.name + '  ' +
+                    '<img src="img/' + item1.card1 + '.png" height="40px" width="40px" align="center">' +
+                    '<img src="img/' + item1.card2 + '.png" height="40px" width="40px" align="center">' +
+                    '<img src="img/' + item1.card3 + '.png" height="40px" width="40px" align="center">' +
+                    '<img src="img/' + item1.card4 + '.png" height="40px" width="40px" align="center">' +
+                    '<img src="img/' + item1.card5 + '.png" height="40px" width="40px" align="center">'
             });
+            showData1.empty();
 
-            showData0.empty();
+            var content = '<li href="#" class="list-group-item">' + player1.join('</li><li href="#" class="list-group-item">') + '</li>';
+            var list = $('<ul class="list-group">').html(content);
 
-            if (counter <= 5) {
-                console.log(counter);
-                var content0 = '<li href="#" class="list-group-item">' + items0.join('</li><li href="#" class="list-group-item">') + '</li>';
-                var list0 = $('<ul class="list-group">').html(content0);
-                showData0.append(list0);
-            }
-                var content0 = '<li href="#" class="list-group-item">' + items0.join('</li><li href="#" class="list-group-item">') + '</li>';
-                var list0 = $('<ul class="list-group">').html(content0);
-                showData0.append(list0);
-            // } else {
-            //     var content0 = '';
-            //     var list0 = $('</ul>').html(content0);
-            // }
-
-        });
-        showData0.text('Loading the JSON file.');
-
-
-        var showData1 = $('#show-player-1');
-
-        $.getJSON('example.json', function (data1) {
-        console.log(data1);
-
-        // Display card pictures
-        var items1 = data1.items.map(function (item1) {
-            return item1.key + ': <img src="img/' + item1.value + '.png" height="50px" width="50px" align="center">';
+            showData1.append(list);
         });
 
-        counter =+ 1;
-        showData1.empty();
+        showData1.text('Loading the JSON file.');
 
-        if ((items1.length) && (counter > 3)) {
-            var content1 = '<li href="#" class="list-group-item">' + items1.join('</li><li href="#" class="list-group-item">') + '</li>';
-            var list1 = $('<ul class="list-group">').html(content1);
-            showData1.append(list1);
-        }
-    });
-    showData1.text('Loading the JSON file.');
-    // });
+        // -----
+
+        var showData2 = $('#show-player-2');
+        $.getJSON('example.json', function (data) {
+
+            // Display card pictures
+            var player2 = data.player2.map(function (item2) {
+                console.log(item2);
+                return 'Player2: ' + item2.name + '<br>' +
+                    '<img src="img/' + item2.card1 + '.png" height="40px" width="40px" align="center">' +
+                    '<img src="img/' + item2.card2 + '.png" height="40px" width="40px" align="center">' +
+                    '<img src="img/' + item2.card3 + '.png" height="40px" width="40px" align="center">' +
+                    '<img src="img/' + item2.card4 + '.png" height="40px" width="40px" align="center">' +
+                    '<img src="img/' + item2.card5 + '.png" height="40px" width="40px" align="center">'
+            });
+            showData2.empty();
+
+            var content = '<li href="#" class="list-group-item">' + player2.join('</li><li href="#" class="list-group-item">') + '</li>';
+            var list = $('<ul class="list-group">').html(content);
+
+            showData2.append(list);
+        });
+
+        showData2.text('Loading the JSON file.');
 });

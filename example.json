@@ -1,40 +1,22 @@
 {
-  "items": [
+  "player1": [
     {
-      "key"   : "card1",
-      "value" : "rock"
-    },{
-      "key"   : "card2",
-      "value" : "scissors"
-    },{
-      "key"   : "card3",
-      "value" : "paper"
-    },{
-      "key"   : "card4",
-      "value" : "spock"
-    },{
-      "key"   : "card5",
-      "value" : "lizard"
-    },{
-      "key"   : "card1",
-      "value" : "rock"
-    },{
-      "key"   : "card2",
-      "value" : "scissors"
-    },{
-      "key"   : "card3",
-      "value" : "paper"
-    },{
-      "key"   : "card4",
-      "value" : "spock"
-    },{
-      "key"   : "card5",
-      "value" : "lizard"
+      "name": "stan",
+      "card1": "spock",
+      "card2": "spock",
+      "card3": "spock",
+      "card4": "spock",
+      "card5": "spock"
     }
   ],
-  "obj": {
-    "number": 3.14e-6,
-    "enabled": true
-  },
-  "message": "This are the game results.."
-}
+  "player2": [
+    {
+      "name": "dave",
+      "card1": "lizard",
+      "card2": "spock",
+      "card3": "rock",
+      "card4": "spock",
+      "card5": "scissors"
+    }
+  ]
+ }

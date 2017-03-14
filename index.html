@@ -5,6 +5,11 @@
     <title>The Endleg Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!--<meta name="google-signin-scope" content="profile email">-->
+    <meta name="google-signin-client_id" content="456985365997-vrb9vc9v7c79pfhrvkotbdpp7kfd2b2f.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -26,15 +31,63 @@
 </head>
 
 <body>
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=927138690721496";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="jumbotron vertical-center" style="background: #525252; border-radius: 0px;">
 
-    <div class="container text-center" style="width: 300px; background: white">
+<!-- Custom Google Button-->
+<script>
+    function onSuccess(googleUser) {
+        console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+        console.log(error);
+    }
+    function renderButton() {
+        gapi.signin2.render('my-signin2', {
+            'scope': 'profile email',
+            'width': 240,
+            'height': 50,
+            'longtitle': true,
+            'theme': 'dark',
+            'onsuccess': onSuccess,
+            'onfailure': onFailure
+        });
+    }
+</script>
 
+<!-- Google SDK-->
+<script>
+    function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+    };
+</script>
+
+<div class="container full vertical-center">
+
+    <div class="container-fluid text-center" style="width: 320px;">
 
         <div class="row">
             <div class="col-md-12">
-                <img src="img/lizard.png" alt="The Endleg" height="110px"  align="center" id="logo" style="margin-top: 30px;">
+                <img src="img/rock.png" alt="The Endleg" height="110px"  align="center" id="logo" style="margin-top: 30px; margin-bottom: 20px;">
             </div>
         </div>
 
@@ -60,9 +113,16 @@
                             </div>
                         </div>
 
-
                         <div class="form-group row">
-                            <button id="loginButton" type="submit" class="btn btn-block btn-primary">Login</button>
+                            <button id="loginButton" type="submit" class="btn btn-block btn-success">Login</button>
+
+                            <!--<div id="my-signin2"></div>-->
+                        </div>
+                        <div class="form-group row">
+                            <button id="fbButton" type="submit" class="btn btn-block btn-primary"> Facebook Login </button>
+                            <!--<button id="googleButton" type="submit" class="btn btn-block btn-danger">Google Login</button>-->
+                            <!--<div class="fb-login-button" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>-->
+                            <!--<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>-->
                         </div>
                     </div>
                     </form>
@@ -71,7 +131,6 @@
 
                 </div>
             </div>
-        <!--</br>-->
     </div>
 </div>
 
@@ -91,6 +150,7 @@
 <script src="https://sdk.amazonaws.com/js/aws-sdk-2.4.8.min.js"></script>
 
 <script src="js/auth.js"></script>
+
 
 <script>
     $(document).ready(function () {

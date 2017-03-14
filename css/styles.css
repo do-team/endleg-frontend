@@ -52,9 +52,10 @@ html, body {
     background-color: white;
 }
 
-div.container {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 7px;
+div.container-fluid {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(221,221,221,0.7);
+    border-radius: 5px;
     text-align: center;
 }
 
@@ -70,6 +71,15 @@ div.form-control {
 
 img.logo {
     border-top: 100px;
+}
+
+.full {
+    background: url('../img/handbanner.jpg') center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height:100%;
 }
 
 img.inverted {
@@ -88,5 +98,5 @@ hr {
 }
 
 label {
-    color: #b4b4b4;
+    color: #0061fd;
 }
