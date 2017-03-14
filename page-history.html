@@ -25,6 +25,8 @@
     <script src="lib/aws/amazon-cognito-identity.min.js"></script>
     <script src="lib/aws/aws-sdk.min.js"></script>
 
+    <!-- Custom scripts -->
+    <script src="js/auth.js"></script>
 </head>
 <body>
 
@@ -44,7 +46,7 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item ">
-                    <a class="nav-link" href="profile.html" style="color: darkgray;">Profile</a>
+                    <a class="nav-link" href="profile.html" style="color: darkgray;">Cards</a>
                 </li>
 
                 <li class="nav-item active">
@@ -61,20 +63,15 @@
 
     <div class="row">
         <div class="col text-center">
-            <h4> Scoreboard </h4>
+            <h4> History </h4>
         </div>
     </div>
 
 
     <div class="row">
-       <div class="col-md-6">
-            <div class="col text-center" id="show-player-1"> Match RESULTS for Player1 will render here </div>
+       <div class="col-md-12">
+            <div class="col text-center" id="show-player-data"> Match RESULTS for Player will render here </div>
        </div>
-
-        <div class="col-md-6">
-            <div class="col text-center" id="show-player-2"> Match RESULTS for Player2 will render here </div>
-        </div>
-    </div>
 
 
     <div class="row">
