@@ -5,6 +5,7 @@ $(document).ready(function () {
         var showData1 = $('#show-player-1');
         $.getJSON('example.json', function (data) {
 
+            // Might be necessary to create tables containing data, simple list is not enough
             // Display card pictures
             var player1 = data.player1.map(function (item1) {
                 console.log(item1);
