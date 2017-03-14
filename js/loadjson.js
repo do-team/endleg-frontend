@@ -1,12 +1,33 @@
 // Documentation available @ http://api.jquery.com/jquery.getjson/
 $(document).ready(function () {
-    // $('#show-data').click(function () {
+
+    function getHistoryData(obj) {
+        var loadToken = localStorage.getItem('sessionToken');
+
+        var data = null;
+        var async = true;
+        var url = "https://y3op33lkfd.execute-api.eu-central-1.amazonaws.com/PROD/out";
+        var method = "POST";
+
+        var request = new XMLHttpRequest();
+
+        request.withCredentials = false;
+
+        request.open(method, url);
+        request.setRequestHeader("content-type", "application/json");
+        request.setRequestHeader("sectoken", loadToken);
+
+        request.send();
+        // event.preventDefault();
+    }
+
+        var record = getHistoryData();
+        console.log(record);
         var html = '';
         var showData1 = $('#show-player-data');
 
-        $.getJSON('example.json', function (data) {
-
-        // $.getJSON('https://y3op33lkfd.execute-api.eu-central-1.amazonaws.com/PROD/out', function (data) {
+        // $.getJSON('example.json', function (data) {
+        $.getJSON(record, function (data) {
 
                 console.log(data.body.Item.user);
                 // Might be necessary to create tables containing data, simple list is not enough
