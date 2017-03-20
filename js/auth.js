@@ -195,11 +195,12 @@ function apiVerify(token) {
 
 // Verify cards and JSON them
 function checkHand() {
-    var myCard = '';
+    var myCard = "";
 
-    var obj = '';
-    var obj_start = '{ ';
-    var obj_end = ' }';
+    // var obj = null;
+    var obj = "";
+    var obj_start = "{ ";
+    var obj_end = " }";
 
     for (var i = 1; i < 6; i++) {
         // console.log('Getting element ' + i);
@@ -211,12 +212,14 @@ function checkHand() {
             obj += '"card' + i + '" : "' + output + '"';
         } else {
             obj += '"card' + i + '" : "' + output + '", ';
-        }
-        ;
-        // console.log(obj);
+        };
+
+        console.log(obj);
     }
 
+
     obj = obj_start + obj + obj_end;
+    console.log(obj);
     var myObject = JSON.stringify(obj);
 
     // console.log(obj);
@@ -229,7 +232,6 @@ function checkHand() {
 function submitCards(obj) {
     var idToken = displayToken();
     var cards = obj;
-    // console.log('Received token.. ' + idToken + ' and the Card set : ' + cards);
 
     var data = null;
     var async = true;
@@ -241,15 +243,10 @@ function submitCards(obj) {
     request.withCredentials = false;
 
     request.open(method, url);
-    //request.setRequestHeader("Access-Control-Allow-Origin", "*");
     request.setRequestHeader("content-type", "application/json");
-    //request.setRequestHeader("Access-Control-Allow-Credentials", "true");
     request.setRequestHeader("sectoken", idToken);
 
-    console.log('DEBUG :: ' + cards);
-
     request.send(cards);
-    // registerUser(user);
     event.preventDefault();
 }
 

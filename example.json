@@ -4,12 +4,22 @@
       "draw": 0,
       "user": "stan",
       "history": {
-        "values": [
-          "Winner is: davesade! stan sent rock, paper, lizard, spock, rock while his opponent davesade sent rock, paper, scissors, lizard, lizard.",
-          "Winner is: davesade! stan sent rock, paper, lizard, spock, rock while his opponent davesade sent rock, spock, rock, scissors, scissors.",
-          "davesade sent rock, paper, scissors, lizard, lizard while his opponent stan sent rock, paper, lizard, spock, rock.",
-          "stan sent rock, paper, lizard, spock, rock while his opponent davesade sent rock, paper, scissors, lizard, lizard."
-        ],
+        "Player2": {
+          "name" : "davesade",
+          "card1" : "rock",
+          "card2" : "rock",
+          "card3" : "rock",
+          "card4" : "rock",
+          "card5" : "spock"
+        },
+        "Player1": {
+          "name" : "stan",
+          "card1" : "scissors",
+          "card2" : "paper",
+          "card3" : "paper",
+          "card4" : "paper",
+          "card5" : "spock"
+        },
         "type": "String"
       },
       "wins": 2,

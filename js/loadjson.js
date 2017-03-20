@@ -1,63 +1,50 @@
 // Documentation available @ http://api.jquery.com/jquery.getjson/
 $(document).ready(function () {
 
-    function getHistoryData(obj) {
-        var loadToken = localStorage.getItem('sessionToken');
 
-        var data = null;
-        var async = true;
-        var url = "https://y3op33lkfd.execute-api.eu-central-1.amazonaws.com/PROD/out";
-        var method = "POST";
 
-        var request = new XMLHttpRequest();
+        console.log('We are going to read data from AuroraDB');
 
-        request.withCredentials = false;
-
-        request.open(method, url);
-        request.setRequestHeader("content-type", "application/json");
-        request.setRequestHeader("sectoken", loadToken);
-
-        request.send();
-        // event.preventDefault();
-    }
-
-        var record = getHistoryData();
-        console.log(record);
         var html = '';
         var showData1 = $('#show-player-data');
 
-        // $.getJSON('example.json', function (data) {
-        $.getJSON(record, function (data) {
+        // $.getJSON('example2.json', function (data) {
+    var loadToken = localStorage.getItem('sessionToken');
+        $.ajaxSetup({
+            headers: {
+                sectoken: loadToken
+            }
+        });
+        $.getJSON("https://y3op33lkfd.execute-api.eu-central-1.amazonaws.com/PROD/out", function (data) {
 
-                console.log(data.body.Item.user);
+                console.log('Now getting into JSON')
+                var response = JSON.parse(data.body);
+                console.log(response);
+                console.log(response.Item);
+                console.log(response.Item.draw);
+
+                // console.log(response.Item.user);
                 // Might be necessary to create tables containing data, simple list is not enough
                 // Display card pictures
 
-                html += '<h5>Username: ' + data.body.Item.user +' </h5>';
+                html += '<h5>Username: ' + response.Item.user +' </h5>';
 
                 html += '<div class="row">';
-                html += '<div class="col col-md-4"> Wins : ' + data.body.Item.wins +' </div>';
-                html += '<div class="col col-md-4"> Draw : ' + data.body.Item.draw +' </div>';
-                html += '<div class="col col-md-4"> Lose : ' + data.body.Item.lose +' </div>';
+                html += '<div class="col col-md-4"> Wins : ' + response.Item.wins +' </div>';
+                html += '<div class="col col-md-4"> Draw : ' + response.Item.draw +' </div>';
+                html += '<div class="col col-md-4"> Lose : ' + response.Item.lose +' </div>';
                 html += '</div> </br>';
 
                 html += '<div class="row">';
-                html += '<div class="col col-md-12"> <h5>History records: </h5> <br> ' + data.body.Item.history.values +' </div>';
+                html += '<div class="col col-md-12"> <h5>Last game played with ' + response.Item.history.Player2.name + ' : </h5>';
+                html += '<img src="img/' + response.Item.history.Player1.card1 + '.png" height="40px" width="40px" align="center">';
+                html += '<img src="img/' + response.Item.history.Player1.card2 + '.png" height="40px" width="40px" align="center">';
+                html += '<img src="img/' + response.Item.history.Player1.card3 + '.png" height="40px" width="40px" align="center">';
+                html += '<img src="img/' + response.Item.history.Player1.card4 + '.png" height="40px" width="40px" align="center">';
+                html += '<img src="img/' + response.Item.history.Player1.card5 + '.png" height="40px" width="40px" align="center">';
 
                 html += '</div>';
 
-                // html += '<div class="col col-md-6"> History : ' + data.body.Item.history.values +' </div>';
-
-                // var player = data.player.map(function (record) {
-                //     console.log(record);
-                //
-                //     return 'Player: ' + record.name + '  ' +
-                //         '<img src="img/' + record.card1 + '.png" height="40px" width="40px" align="center">' +
-                //         '<img src="img/' + record.card2 + '.png" height="40px" width="40px" align="center">' +
-                //         '<img src="img/' + record.card3 + '.png" height="40px" width="40px" align="center">' +
-                //         '<img src="img/' + record.card4 + '.png" height="40px" width="40px" align="center">' +
-                //         '<img src="img/' + record.card5 + '.png" height="40px" width="40px" align="center">'
-                // });
 
                 showData1.empty();
 
@@ -70,4 +57,4 @@ $(document).ready(function () {
 
         // showData1.text('Loading the JSON file.')
 
-// })
+// });
